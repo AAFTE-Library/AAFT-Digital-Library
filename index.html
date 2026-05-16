@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AAFT Digital Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #1e88e5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .search {
+      padding: 15px;
+      text-align: center;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .book {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .book h3 {
+      margin: 0 0 10px 0;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #1e88e5;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 AAFT Digital Library</h1>
+  <p>Access books anytime, anywhere</p>
+</header>
+
+<div class="search">
+  <input type="text" id="search" placeholder="Search books...">
+</div>
+
+<div class="container" id="bookList">
+
+  <div class="book">
+    <h3>School of Fashion Design</h3>
+    <p>E-book</p>
+    <a href="https://drive.google.com/drive/folders/1nviKtZYDMbTTJ13gI-0ApBRg0Koz9_gg?usp=drive_link" target="_blank">Open</a>
+  </div>
+
+  <div class="book">
+    <h3>School of Interior Design</h3>
+    <p>E-book</p>
+    <a href="https://drive.google.com/drive/folders/1GDxbswF5FjN2bW3mdeEjjIk-6uPOM3l-?usp=drive_link" target="_blank">Open</a>
+  </div>
+
+  <div class="book">
+    <h3>School of Hospitality and Tourism</h3>
+    <p>E-book</p>
+    <a href="https://drive.google.com/drive/folders/1PB9oaJfL_3zqp1yT6TYNrl0anNROT-Mk?usp=drive_link" target="_blank">Open</a>
+  </div>
+
+</div>
+
+<script>
+  const search = document.getElementById("search");
+  const books = document.querySelectorAll(".book");
+
+  search.addEventListener("keyup", function () {
+    let value = this.value.toLowerCase();
+
+    books.forEach(book => {
+      let text = book.innerText.toLowerCase();
+      book.style.display = text.includes(value) ? "block" : "none";
+    });
+  });
+</script>
+
+</body>
+</html>
