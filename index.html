@@ -1,185 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AAFT Digital Library</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAFT Digital Library</title>
 
-  <style>
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f7fb;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-header {
-  background: linear-gradient(135deg, #1e88e5, #1565c0);
-  color: white;
-  padding: 35px 20px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fb;
+}
+
+/* Header */
+header{
+    background: linear-gradient(135deg,#0d47a1,#1976d2);
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
 
 header h1{
-  margin:0;
-  font-size:38px;
+    font-size:38px;
 }
 
 header p{
-  margin-top:10px;
-  font-size:17px;
+    margin-top:10px;
+    font-size:18px;
 }
 
-.search {
-  padding: 25px;
-  text-align: center;
+/* Navbar */
+nav{
+    background:#1565c0;
+    padding:14px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-input {
-  width: 85%;
-  max-width: 500px;
-  padding: 14px;
-  border-radius: 50px;
-  border: none;
-  font-size: 16px;
-  outline: none;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 18px;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 25px;
+nav a:hover{
+    color:#bbdefb;
 }
 
-.book {
-  background: white;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: 0.3s;
+/* Search */
+.search{
+    text-align:center;
+    margin:30px 0;
 }
 
-.book:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+.search input{
+    width:85%;
+    max-width:500px;
+    padding:14px 20px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    outline:none;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
 }
 
-.book h3 {
-  margin: 0 0 10px 0;
-  color: #1565c0;
+/* Section Title */
+.section-title{
+    text-align:center;
+    color:#0d47a1;
+    margin-top:20px;
+    font-size:28px;
+}
+
+/* Grid Layout */
+.container,
+.resources{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:30px;
+}
+
+/* Cards */
+.book,
+.card{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.book:hover,
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
+}
+
+.book h3,
+.card h3{
+    color:#1565c0;
+    margin-bottom:10px;
 }
 
 .book p{
-  color:#666;
+    color:#666;
 }
 
-a {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
-  background: #1e88e5;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
+/* Book Button */
+.book a{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 16px;
+    background:#1e88e5;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-a:hover {
-  background: #0d47a1;
+.book a:hover{
+    background:#0d47a1;
 }
 
+/* Resource Links */
+.card a{
+    display:block;
+    margin:8px 0;
+    color:#1565c0;
+    text-decoration:none;
+}
+
+.card a:hover{
+    text-decoration:underline;
+}
+
+/* Footer */
 footer{
-  margin-top:40px;
-  background:#1565c0;
-  color:white;
-  text-align:center;
-  padding:15px;
+    margin-top:40px;
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:18px;
 }
-
-
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>📚 AAFT Digital Library</h1>
-  <p>Access books anytime, anywhere</p>
+    <h1>📚 AAFT Digital Library</h1>
+    <p>Access books, journals & digital resources anytime, anywhere</p>
 </header>
 
+<nav>
+    
+    <a href="#">E-Books</a>
+    <a href="#">Journals</a>
+    <a href="#">Resources</a>
+</nav>
+
 <div class="search">
-  <input type="text" id="search" placeholder="Search books...">
+    <input type="text" id="search" placeholder="Search books, journals, resources...">
 </div>
 
-<div class="container" id="bookList">
+<h2 class="section-title">E-Books & Journals</h2>
 
-  <div class="book">
-    <h3>School of Fashion Design</h3>
-    <p>E-book</p>
-    <a href="https://drive.google.com/drive/folders/1nviKtZYDMbTTJ13gI-0ApBRg0Koz9_gg?usp=drive_link" target="_blank">Open</a>
-  </div>
+<div class="container" id="libraryItems">
 
-  <div class="book">
-    <h3>School of Interior Design</h3>
-    <p>E-book</p>
-    <a href="https://drive.google.com/drive/folders/1GDxbswF5FjN2bW3mdeEjjIk-6uPOM3l-?usp=drive_link" target="_blank">Open</a>
-  </div>
+    <div class="book">
+        <h3>School of Fashion Design</h3>
+        <p>E-book</p>
+        <a href="https://drive.google.com/drive/folders/1nviKtZYDMbTTJ13gI-0ApBRg0Koz9_gg?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            Open
+        </a>
+    </div>
 
-  <div class="book">
-    <h3>School of Hospitality and Tourism</h3>
-    <p>E-book</p>
-    <a href="https://drive.google.com/drive/folders/1PB9oaJfL_3zqp1yT6TYNrl0anNROT-Mk?usp=drive_link" target="_blank">Open</a>
-  </div>
+    <div class="book">
+        <h3>School of Interior Design</h3>
+        <p>E-book</p>
+        <a href="https://drive.google.com/drive/folders/1GDxbswF5FjN2bW3mdeEjjIk-6uPOM3l-?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            Open
+        </a>
+    </div>
 
-  <div class="book">
-    <h3>Fashion and Textiles</h3>
-    <p>Journal</p>
-    <a href="https://link.springer.com/journal/40691">Open</a>
-  </div>
-  
-<div class="book">
-    <h3>Indian Journal of Fashion Technology</h3>
-    <p>Journal</p>
-    <a href="https://ijft.darpanonline.org/index.php/ijft">Open</a>
-  </div>
+    <div class="book">
+        <h3>School of Hospitality and Tourism</h3>
+        <p>E-book</p>
+        <a href="https://drive.google.com/drive/folders/1PB9oaJfL_3zqp1yT6TYNrl0anNROT-Mk?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            Open
+        </a>
+    </div>
 
-<div class="book">
-    <h3>Bloomsbury Open Access</h3>
-    <p>Book</p>
-    <a href="https://www.bloomsburycollections.com/search?newSearchRecord&browse&product=bloomsburyOpenAccess">Open</a>
-  </div>
+    <div class="book">
+        <h3>Fashion and Textiles</h3>
+        <p>Journal</p>
+        <a href="https://link.springer.com/journal/40691" target="_blank" rel="noopener noreferrer">
+            Open
+        </a>
+    </div>
 
+    <div class="book">
+        <h3>Indian Journal of Fashion Technology</h3>
+        <p>Journal</p>
+        <a href="https://ijft.darpanonline.org/index.php/ijft" target="_blank" rel="noopener noreferrer">
+            Open
+        </a>
+    </div>
 
+</div>
+
+<h2 class="section-title">Digital Resources</h2>
+
+<div class="resources">
+
+    <div class="card">
+        <h3>📚 Dictionaries & Thesauruses</h3>
+        <a href="https://dictionary.cambridge.org/" target="_blank">Cambridge Dictionary</a>
+        <a href="https://www.merriam-webster.com/" target="_blank">Merriam Webster</a>
+        <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank">Oxford Learner’s Dictionary</a>
+    </div>
+
+    <div class="card">
+        <h3>🌍 Encyclopaedias</h3>
+        <a href="https://www.britannica.com/" target="_blank">Encyclopaedia Britannica</a>
+        <a href="https://www.scholarpedia.org/article/Main_Page" target="_blank">Scholarpedia</a>
+        <a href="https://plato.stanford.edu/" target="_blank">Stanford Encyclopedia</a>
+    </div>
+
+    <div class="card">
+        <h3>📖 Open Access Books</h3>
+        <a href="https://archive.org/" target="_blank">Internet Archive</a>
+        <a href="https://www.gutenberg.org/" target="_blank">Project Gutenberg</a>
+        <a href="https://ndl.iitkgp.ac.in/" target="_blank">National Digital Library</a>
+    </div>
+
+    <div class="card">
+        <h3>🧾 Journals & Research</h3>
+        <a href="https://doaj.org/" target="_blank">DOAJ</a>
+        <a href="https://www.springeropen.com/journals" target="_blank">Springer Open</a>
+        <a href="https://www.cambridge.org/core/what-we-publish/open-access" target="_blank">Cambridge Open Access</a>
+    </div>
 
 </div>
 
 <footer>
-  © 2026 AAFT Digital Library
+    © 2026 AAFT Digital Library | Digital Knowledge Portal
 </footer>
 
 <script>
-
 const search = document.getElementById("search");
-const books = document.querySelectorAll(".book");
+const items = document.querySelectorAll(".book, .card");
 
-search.addEventListener("keyup", function(){
+search.addEventListener("keyup", function() {
 
-  let value = this.value.toLowerCase();
+    let value = this.value.toLowerCase();
 
-  books.forEach(book => {
+    items.forEach(item => {
 
-    let text = book.innerText.toLowerCase();
+        let text = item.innerText.toLowerCase();
 
-    if(text.includes(value)){
-      book.style.display = "block";
-    }else{
-      book.style.display = "none";
-    }
+        if(text.includes(value)){
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
 
-  });
+    });
 
 });
 </script>
